@@ -1,10 +1,10 @@
 
-var express = require('express');
-var app = express();
+const express = process.env.USE_LOCAL_EXPRESS ? require('..') : require('express');
+const app = express();
 
 // number of middleware
 
-var n = parseInt(process.env.MW || '1', 10);
+let n = parseInt(process.env.MW || '1', 10);
 console.log('  %s middleware', n);
 
 while (n--) {
